@@ -29,8 +29,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200 , unique_for_date="published")
     published = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=20 , choices=options , default="published")
-    objects = models.Manager()
-    postobjects = PostBlog()
+    objects = models.Manager() # default manager
+    postobjects = PostBlog() # custom manager
     
     def __str__(self) -> str:
         return self.title
