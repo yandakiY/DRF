@@ -15,7 +15,6 @@ class Post(models.Model):
     class PostBlog(models.Manager):
         def get_queryset(self) -> QuerySet:
             return super().get_queryset() .filter(status='published')
-        
 
     options = (
         ('draft' , 'Draft'),
