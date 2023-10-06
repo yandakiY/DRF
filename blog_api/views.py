@@ -8,7 +8,7 @@ class PostList(generics.ListCreateAPIView):
     pass
 
 
-class PostDetail(generics.RetrieveDestroyAPIView):
+class PostDetail(generics.RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     pass
