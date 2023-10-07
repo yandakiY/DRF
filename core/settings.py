@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'blog',
     'blog_api',
     'rest_framework',
-    'django_extensions'
+    'django_extensions',
+    'ecommerce',
+    'ecommerce_api'
 ]
 
 MIDDLEWARE = [
