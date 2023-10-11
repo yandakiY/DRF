@@ -32,8 +32,34 @@ class Product(TitleSlugDescriptionModel , ActivatorModel , TimeStampedModel):
     def __str__(self) -> str:
         return f'{self.title}'
     
+    # we need to add new functions: manage_stock, check_stock and place_order
     
+    # Substract quantity
+    def manage_stock(self , qte):
+        my_qte = self.title
+        self.qte = my_qte - qte
+        
+        self.save()
+        
+    # check if params qte is great than self.qte
+    def check_stock(self , qte):
+        if self.qte > int(qte):
+            return True
+        
+        return False
     
+    # place order : place our product in a basket with the user and quantity
+    def place_order(self , user , qte):
+        # test if qte is not great than qte
+        if self.check_stock(qte):
+            order = Order.objects.create(
+                user = user,
+                quantity = qte,
+                product = self
+            )
+            
+            return order
+        return None
     
     
     
@@ -43,7 +69,7 @@ class Order(TimeStampedModel , ActivatorModel):
     # property
     user = models.ForeignKey(User , on_delete=models.CASCADE)
     product = models.ForeignKey(Product , on_delete=models.CASCADE)
-    
+    quantity = models.IntegerField(default=0)
     
     def __str__(self) -> str:
         return f'{self.user.username} - {self.product.title}'
