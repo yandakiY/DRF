@@ -5,7 +5,14 @@ from .serializers import ProductSerializer
 # Create your models here.
 
 class ProductView(ListCreateAPIView):
-    queryset = Product.objects.all()
+    queryset = Product.postobjects.all()
+    serializer_class = ProductSerializer
+    
+    pass
+
+
+class ProductDetail(RetrieveAPIView):
+    queryset = Product.postobjects.all()
     serializer_class = ProductSerializer
     
     pass
