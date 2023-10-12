@@ -36,7 +36,7 @@ class Product(TitleSlugDescriptionModel , ActivatorModel , TimeStampedModel):
     
     # Substract quantity
     def manage_stock(self , qte):
-        my_qte = self.title
+        my_qte = self.qte
         self.qte = my_qte - qte
         
         self.save()
