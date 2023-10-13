@@ -22,9 +22,9 @@ class Product(TitleSlugDescriptionModel , ActivatorModel , TimeStampedModel):
         def get_queryset(self) -> QuerySet:
             return super().get_queryset() .filter(status = 1)
     
-    category = models.ForeignKey(Category , on_delete=models.CASCADE)
+    category = models.ForeignKey(Category , on_delete=models.CASCADE , default=1)
     price = models.DecimalField(verbose_name="Price product", decimal_places=3 , max_digits=16)
-    qte = models.IntegerField(verbose_name="Quantity product")
+    qte = models.IntegerField(verbose_name="Quantity product" , default=1)
     
     objects = models.Manager()
     postobjects = PostManager()

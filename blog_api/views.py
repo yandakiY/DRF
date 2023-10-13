@@ -5,13 +5,13 @@ from .serializers import PostSerializer
 class PostList(generics.ListCreateAPIView):
     queryset = Post.postobjects.all()
     serializer_class = PostSerializer
-    pass
+    # pass
 
 
 class PostDetail(generics.RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    pass
+    # pass
 
 
 

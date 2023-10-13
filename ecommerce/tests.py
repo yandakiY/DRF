@@ -57,8 +57,7 @@ class ProductTest(TestCase):
         qte_prod = prod.qte
         
         self.assertFalse(prod.check_stock(test_qte_1),"False condition")
-        self.assertTrue(prod.check_stock(test_qte_2))
-    
+        self.assertTrue(prod.check_stock(test_qte_2))  
     
     def test_manage_stock(self):
         prod = Product.objects.get(id = 1)
@@ -73,7 +72,6 @@ class ProductTest(TestCase):
         
         self.assertEqual(prod.qte , 1)
         self.assertEqual(prod1.qte , 1)
-    
     
     def test_place_order(self):
         
@@ -92,8 +90,7 @@ class ProductTest(TestCase):
         test_qte_2 = 2
         
         orders = prod.place_order(user , test_qte_2)
-        self.assertIsNone(orders)
-        
+        self.assertIsNone(orders)    
     
     def test_orders(self):
         
